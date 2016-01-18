@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link href="css/jquery-ui.min.css" rel="stylesheet">
+	<script type="text/javascript" src="scripts/jquery-1.12.0.min.js"></script>
+	<script type="text/javascript" src="scripts/jquery-ui.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$('.tabContainer').tabs();
+		$('#mainmenu').menu({
+			icons : {
+				submenu : "ui-icon-arrowthick-1-e"
+			}
+		});
+		$('#accordion').accordion({
+			active : false,
+			collapsible: true,
+			icons : {
+				header : "ui-icon-circle-plus",
+				activeHeader : "ui-icon-circle-minus"
+			}
+		});// end accordion
+		$('.date').datepicker({
+			changeMonth : true,
+			minDate : '+3d'
+		});// end datepicker
+		$('#meal').selectmenu({
+			width : 150,
+			icons : {
+				button :  "ui-icon-triangle-1-s"
+			}
+		});// selectmenu
+		$('.button').button({
+			icons : {
+				secondary : "ui-icon-circle-plus"
+			}
+		});
+		$('#radio').buttonset();
+		$('#checkbox').buttonset();
+		var colors = ['red','orange','green','pink','yellow'];
+		$('#color').autocomplete({
+			source : colors
+		});
+		$('#playList , #mainmenu , #mainmenu ul').sortable({
+			opacity : 0.5,
+			placeholder : 'ui-state-highlight',
+			axis : 'y'
+		});
+		$('#disable').click(function(){
+			$('#playList').sortable('disable');
+		});
+		$('#enable').click(function(){
+			$('#playList').sortable('enable');
+		});
+	});// end ready
+	</script>
+	<style type="text/css">
+	.ui-menu{
+		width: 150px;
+	}
+	.ui-menu .ui-menu{
+		width: 100%;
+	}
+	input[type="text"]{
+		width : 150px;  
+		height : 20px;
+	}
+	label{
+		width: 100px;
+		display: inline-block;
+		text-align: right;
+	}
+	.label{
+		text-align: center;
+	}
+	</style>
+	<title>Test Tab</title>
+</head>
+<body>
+	<h1>Tab Panel</h1>
+	<div class="tabContainer">
+		<ul>
+			<li><a href="#panel1">Tab 1</a></li>
+			<li><a href="#panel2">Tab 2</a></li>
+			<li><a href="#panel3">Tab 3</a></li>
+		</ul>
+		<div id="panel1">
+			123
+		</div>
+		<div id="panel2">
+			234
+		</div>
+		<div id="panel3">
+			456
+		</div>
+	</div>
+	<div id="accordion">
+		<h3>Test1</h3>
+		<div>
+			NTU
+		</div>
+		<h3>Test2</h3>
+		<div>
+			EE
+		</div>
+		<h3>Test3</h3>
+		<div>
+			Ichigo
+		</div>
+	</div>
+	<hr>
+	<div>
+		<ul id="mainmenu">
+			<li><a href="about.html">About Us</a></li>
+			<li><a href="contact.html">Contact Us</a></li>
+			<li><a href="products.html">Products</a>
+				<ul>
+					<li><a href="a.html">Product A</a></li>
+					<li><a href="b.html">Product B</a></li>
+					<li><a href="c.html">Product C</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<hr>
+	<div>
+		<input type="text" name="birthdate" id="birthdate" class="date" >
+		<input type="text" name="arrival" class="date">
+		<input type="text" name="departure" class="date">
+		
+	</div>
+	<div>
+		<select name="meal" id="meal">
+			<option>No meal</option>
+			<option>Vegan</option>
+			<option>Gluten Free</option>
+			<option>Vegetarian</option>
+			<option>Meat eater</option>
+		</select>
+	</div>
+	<input type="button" name="button" id="inputbutton" class="button" value="Click">
+	<input type="reset" name="reset" id="reset" class="button" value="Reset">
+	<input type="submit" name="submit" id="submit" class="button" value="Submit">
+	<button id="button" class="button">A Button Element</button>
+	<div id="radio">
+		<label for="radio">Yes or Not</label>
+		<input type="radio" name="radio" id="yes">
+		<label for="yes" class="label">Yes</label>
+		<input type="radio" name="radio" id="no">
+		<label for="no" class="label">No</label>
+	</div>
+	<div id="checkbox">
+		<label for="checkbox">Checkboxes</label>
+		<input type="checkbox" name="checkbox" id="aisle">
+		<label for="aisle" class="label">Aisle</label>
+		<input type="checkbox" name="checkbox" id="window">
+		<label for="window" class="label">Window</label>
+		<input type="checkbox" name="checkbox" id="exitrow">
+		<label for="exitrow" class="label">Exit Row</label>
+		<input type="checkbox" name="checkbox" id="anyseat">
+		<label for="anyseat" class="label">Any seat</label>
+	</div>
+	<div id="autocomplete">
+		<input type="text" id="color" name="color">
+	</div>
+	<ul id="playList">
+		<li>My Way -- Frank Sinatra</li>
+		<li>Like a Rolling Stone -- Bob Dylan</li>
+		<li>Respect -- Aretha Franklin</li>
+	</ul>
+	<button id="disable">Disable</botton>
+	<button id="enable">Enable</botton>
+</body>
+</html>
